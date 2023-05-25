@@ -1,3 +1,51 @@
+<?php
+
+//para imprimir errores en ejecucion;
+
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
+
+// Primer paso--------------------------------------
+  require_once ('config.php');
+  $data = new Config();
+
+  $id = $_GET['id'];
+  $data -> setId($id);
+
+  $record = $data->selectOne();
+  print_r($record);
+
+  $value = $record[0];
+
+  echo"<br>";
+  echo"<br>";
+  print_r($value);
+
+// Segundo paso-----------------------------------
+
+if(isset($_POST['editar'])){
+  $data->setNombres($_POST['nombres']);
+  $data->setDireccion($_POST['direccion']);
+  $data->setLogros($_POST['logros']);
+  $data->setingles($_POST['ingles']);
+  $data->setSkills($_POST['skills']);
+  $data->setSer($_POST['ser']);
+  $data->setReview($_POST['review']);
+
+  $data->update();
+
+  echo "<script> alert ('Dato Editado!!! ');document.location='estudiantes.php'</script>"; 
+
+
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -51,6 +99,7 @@
                   id="nombres"
                   name="nombres"
                   class="form-control"  
+                  value="<?php echo $value['nombres']; ?>"
                  
                 />
               </div>
@@ -62,6 +111,7 @@
                   id="direccion"
                   name="direccion"
                   class="form-control"  
+                  value="<?php echo $value['direccion']; ?>"
                   
                  
                 />
@@ -74,10 +124,61 @@
                   id="logros"
                   name="logros"
                   class="form-control"  
-                  
+                  value="<?php echo $value['logros']; ?>"
                   
                 />
               </div>
+
+              <div class="mb-1 col-12">
+                <label for="ingles" class="form-label">profesor de Inglés</label>
+                <input 
+                  type="text"
+                  id="ingles"
+                  name="ingles"
+                  class="form-control"  
+                  value="<?php echo $value['ingles']; ?>"
+                 
+                />
+              </div>
+              
+              <div class="mb-1 col-12">
+                <label for="skills" class="form-label">Profesor de Skills</label>
+                <input 
+                  type="text"
+                  id="skills"
+                  name="skills"
+                  class="form-control"  
+                  value="<?php echo $value['skills']; ?>"
+                 
+                />
+              </div>
+
+              <div class="mb-1 col-12">
+                <label for="ser" class="form-label">Profesor de Ser</label>
+                <input 
+                  type="text"
+                  id="ser"
+                  name="ser"
+                  class="form-control"  
+                  value="<?php echo $value['ser']; ?>"
+                 
+                />
+              </div>
+
+              <div class="mb-1 col-12">
+                <label for="review" class="form-label">Profesor de Review</label>
+                <input 
+                  type="text"
+                  id="review"
+                  name="review"
+                  class="form-control"  
+                  value="<?php echo $value['review']; ?>"
+                 
+                />
+              </div>
+
+
+
 
               <div class=" col-12 m-2">
                 <input type="submit" class="btn btn-primary" value="UPDATE" name="editar"/>
