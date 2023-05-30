@@ -10,8 +10,8 @@ error_reporting(E_ALL);
 
 
 
-    require_once("config.php");// llamar la clase
-    $record = new Config();
+require_once ('Estudiante.php');
+$record = new Estudiante();
 
     if(isset($_GET['id']) && isset ($_GET ['req'])){
         if($_GET['req']=="delete"){

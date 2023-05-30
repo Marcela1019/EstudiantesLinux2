@@ -9,8 +9,8 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 
 // Primer paso--------------------------------------
-  require_once ('config.php');
-  $data = new Config();
+  require_once ('Estudiante.php');
+  $data = new Estudiante();
 
   $id = $_GET['id'];
   $data -> setId($id);

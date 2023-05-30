@@ -10,3 +10,15 @@ CREATE TABLE campers(
     ser VARCHAR (50),
     review VARCHAR (50)
 );
+
+CREATE TABLE users(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    idCamper INT NOT NULL,
+    email VARCHAR (80) NOT NULL,
+    username VARCHAR (80) NOT NULL,
+    password VARCHAR (60) NOT NULL,
+
+    FOREIGN KEY (idCamper) REFERENCES campers(id)
+
+);
+
