@@ -138,6 +138,22 @@ class Estudiante extends Conectar{
         }
     }
 
+    public function checkUser($email){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT *FROM users WHERE email = '$email'");
+            $stm-> execute();
+            if ($stm->fetchColumn()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
+    }
+
     public function update(){
         try {
             $stm = $this->dbCnx->prepare("UPDATE campers SET nombres = ?, direccion = ?, logros = ?, ingles = ?, skills= ?, ser= ?, review= ? WHERE id=?");

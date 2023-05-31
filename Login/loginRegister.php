@@ -21,7 +21,7 @@
             <img src="img/camper.png" alt="" class="logo"></div>
             <div class="d-flex justify-content-center align-items-center"><h1 style="font-weight: 800;">BIENVENIDOS</h1></div>
             <div  class="d-flex justify-content-center align-items-center" >
-                <form action="login.php" method="POST">
+                <form action="loguearse.php" method="POST">
                     <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
                         <input 
