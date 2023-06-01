@@ -72,6 +72,7 @@ class LoginUser extends Conectar{
                 $_SESSION['id']=$user[0]['id']; 
                 $_SESSION['email']=$user[0]['email']; 
                 $_SESSION['password']=$user[0]['password'];
+                $_SESSION['username']=$user[0]['username'];
                 return true; 
             }
             else{

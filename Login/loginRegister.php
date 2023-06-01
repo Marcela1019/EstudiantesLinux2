@@ -42,7 +42,7 @@
                         />
                     </div>
                  
-                    <input type="submit" class="btn btn-primary" name="login" value="Loguearse">
+                    <input type="submit" class="btn btn-primary" name="loguearse" value="Loguearse">
                   </form>
                   
 

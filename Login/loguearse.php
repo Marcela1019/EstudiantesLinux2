@@ -1,9 +1,18 @@
 <?php
+
+//para imprimir errores en ejecucion;
+
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
+
     session_start();
 
     if(isset($_POST['loguearse'])){
 
-        require_once("loginUser.php");
+        require_once("LoginUser.php");
 
         $credenciales = new LoginUser();
 
@@ -16,7 +25,7 @@
             header('location:../Home/home.php');
         }
         else{
-            echo "<script> alert ('password /invalido!!! ');document.location='loginregister.php'</script>"; 
+            echo "<script> alert ('password  E-mail invalido!!! ');document.location='loginRegister.php'</script>"; 
         }
     }
 

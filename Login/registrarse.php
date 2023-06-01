@@ -19,9 +19,19 @@ if(isset($_POST['registrarse'])){
     $registrar->setUsername($_POST['username']);
     $registrar->setPassword($_POST['password']);
 
-    $registrar->inserData();
+    /* $registrar->inserData();
 
      echo "<script>alert ('Los datos fueron guardados satisfactoriamente'); document.location='loginRegister.php' </script>";
- }
+  */
+
+  if ($registrar->checkUser($_POST['email'])){
+    echo "<script>alert ('Usuario ya se encuentra registrado'); document.location='loginRegister.php' </script>";
+  }
+else{
+    $registrar->inserData();
+    echo "<script>alert ('Los datos fueron guardados satisfactoriamente'); document.location='../Home/home.php' </script>";
+
+}
+}
 
 ?>

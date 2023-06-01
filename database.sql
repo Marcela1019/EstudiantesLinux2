@@ -1,6 +1,9 @@
+-- Active: 1685444645314@@127.0.0.1@3306@campusv2
 CREATE DATABASE campusv2;
 
 use DATABASE campusv2; 
+
+SHOW TABLES;
 CREATE TABLE campers(
     id INT primary key AUTO_INCREMENT,
     nombres VARCHAR (50) NOT NULL,
@@ -22,4 +25,8 @@ CREATE TABLE users(
     FOREIGN KEY (idCamper) REFERENCES campers(id)
 
 );
+
+DESCRIBE users;
+
+
 
